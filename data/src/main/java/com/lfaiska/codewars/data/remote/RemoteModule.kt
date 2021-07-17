@@ -9,22 +9,27 @@ import dagger.Provides
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
 @Module
 class RemoteModule {
     @Provides
-    fun provideRetrofitInstance(): Retrofit = Retrofit.Builder()
-        .client(getHttpClient())
-        .addConverterFactory(GsonConverterFactory.create(getGson()))
+    @Singleton
+    fun provideHttpClient(): OkHttpClient {
+        val okHttpClientBuilder = OkHttpClient.Builder()
+        return okHttpClientBuilder.build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideGson(): Gson {
+        return GsonBuilder().setLenient().setFieldNamingPolicy(FieldNamingPolicy.IDENTITY).create()
+    }
+
+    @Provides
+    fun provideRetrofitInstance(okHttpClient: OkHttpClient, gson: Gson): Retrofit = Retrofit.Builder()
+        .client(okHttpClient)
+        .addConverterFactory(GsonConverterFactory.create(gson))
         .baseUrl(BASE_URL)
         .build()
-}
-
-fun getGson(): Gson {
-    return GsonBuilder().setLenient().setFieldNamingPolicy(FieldNamingPolicy.IDENTITY).create()
-}
-
-fun getHttpClient(): OkHttpClient {
-    val okHttpClientBuilder = OkHttpClient.Builder()
-    return okHttpClientBuilder.build()
 }
