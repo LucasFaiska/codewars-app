@@ -8,8 +8,9 @@ import com.lfaiska.codewars.domain.entity.User
 import com.lfaiska.codewars.domain.error.ExecutionErrorException
 import com.lfaiska.codewars.domain.error.UserNotFoundException
 import com.lfaiska.codewars.domain.repository.UserRepository
+import javax.inject.Inject
 
-class UserRepositoryImpl(
+class UserRepositoryImpl @Inject constructor(
     private val apiServices: ApiServices
 ) : UserRepository {
     override suspend fun getUser(username: String): User {

@@ -32,12 +32,17 @@ class RemoteModule {
     }
 
     @Provides
+    @Singleton
     fun provideRetrofitInstance(okHttpClient: OkHttpClient, gson: Gson): Retrofit =
         Retrofit.Builder()
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .baseUrl(BASE_URL)
             .build()
+
+    @Provides
+    @Singleton
+    fun provideApiServices(retrofit: Retrofit): ApiServices = retrofit.create(ApiServices::class.java)
 
     companion object {
         private const val TIMEOUT = 10L
