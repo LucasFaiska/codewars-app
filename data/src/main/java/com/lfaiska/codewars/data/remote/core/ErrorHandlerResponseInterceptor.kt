@@ -1,8 +1,8 @@
 package com.lfaiska.codewars.data.remote.core
 
-import com.lfaiska.codewars.data.remote.core.errors.ResourceNotFoundException
-import com.lfaiska.codewars.data.remote.core.errors.TimeoutException
-import com.lfaiska.codewars.data.remote.core.errors.UnhandledErrorException
+import com.lfaiska.codewars.data.remote.core.error.ResourceNotFoundException
+import com.lfaiska.codewars.data.remote.core.error.TimeoutException
+import com.lfaiska.codewars.data.remote.core.error.UnhandledErrorException
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
