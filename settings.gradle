@@ -1,2 +1,3 @@
 rootProject.name = "Codewars App"
 include ':app'
+include ':data'
