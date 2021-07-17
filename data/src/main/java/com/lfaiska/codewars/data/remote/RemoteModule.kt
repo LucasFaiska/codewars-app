@@ -12,7 +12,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
 class RemoteModule {
-
     @Provides
     fun provideRetrofitInstance(): Retrofit = Retrofit.Builder()
         .client(getHttpClient())
