@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Codewars App</string>
+
+    <string name="user_not_found_error_message">User not found.</string>
 </resources>
