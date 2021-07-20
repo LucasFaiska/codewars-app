@@ -4,7 +4,7 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.lfaiska.codewars.data.BuildConfig.BASE_URL
-import com.lfaiska.codewars.data.remote.core.ErrorHandlerResponseInterceptor
+import com.lfaiska.codewars.data.remote.core.ApiResponse
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -19,7 +19,6 @@ class RemoteModule {
     @Singleton
     fun provideHttpClient(): OkHttpClient {
         val okHttpClientBuilder = OkHttpClient.Builder()
-            .addInterceptor(ErrorHandlerResponseInterceptor())
             .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
             .readTimeout(TIMEOUT, TimeUnit.SECONDS)
         return okHttpClientBuilder.build()

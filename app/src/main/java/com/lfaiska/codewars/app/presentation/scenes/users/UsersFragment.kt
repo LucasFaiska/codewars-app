@@ -50,6 +50,13 @@ class UsersFragment : Fragment() {
     }
 
     private fun setupObservers() {
+        viewModel.hasUserNameEmptyError.observe(viewLifecycleOwner, { hasFailure ->
+            if (hasFailure) {
+                AlertDialog.Builder(requireContext())
+                    .setMessage(getString(R.string.username_empty_error_message)).show()
+            }
+        })
+
         viewModel.hasUserNotFoundError.observe(viewLifecycleOwner, { hasFailure ->
             if (hasFailure) {
                 AlertDialog.Builder(requireContext())

@@ -1,3 +1,3 @@
 package com.lfaiska.codewars.domain.error
 
-class UsernameEmptyException : Exception()
+class UsernameEmptyException : DomainErrorException()
