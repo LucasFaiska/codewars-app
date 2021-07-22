@@ -3,4 +3,9 @@
 
     <string name="user_not_found_error_message">User not found.</string>
     <string name="username_empty_error_message">You need to enter a user in the search.</string>
+
+    <string name="user_username_text">Username: %s</string>
+    <string name="user_name_text">Name: %s</string>
+    <string name="user_rank_text">Rank: %1$s - %2$s</string>
+    <string name="user_best_language_text">Best Language: %1$s - %2$s</string>
 </resources>

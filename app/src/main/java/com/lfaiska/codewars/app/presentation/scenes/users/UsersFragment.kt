@@ -8,6 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.lfaiska.codewars.app.MainApplication
 import com.lfaiska.codewars.app.R
 import com.lfaiska.codewars.app.databinding.FragmentUsersBinding
@@ -15,6 +16,7 @@ import javax.inject.Inject
 
 class UsersFragment : Fragment() {
     private lateinit var binding: FragmentUsersBinding
+    private val userListAdapter = UserListAdapter()
 
     @Inject
     lateinit var viewModel: UsersViewModel
@@ -32,6 +34,7 @@ class UsersFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_users, container, false)
         setupSearchView()
+        setupAdapter()
         setupObservers()
         return binding.root
     }
@@ -49,6 +52,13 @@ class UsersFragment : Fragment() {
         })
     }
 
+    private fun setupAdapter() {
+        binding.userList.apply {
+            this.adapter = userListAdapter
+            this.layoutManager = LinearLayoutManager(context)
+        }
+    }
+
     private fun setupObservers() {
         viewModel.hasUserNameEmptyError.observe(viewLifecycleOwner, { hasFailure ->
             if (hasFailure) {
@@ -62,6 +72,10 @@ class UsersFragment : Fragment() {
                 AlertDialog.Builder(requireContext())
                     .setMessage(getString(R.string.user_not_found_error_message)).show()
             }
+        })
+
+        viewModel.userListItemFound.observe(viewLifecycleOwner, { userListItem ->
+            userListAdapter.addUser(userListItem)
         })
     }
 }
