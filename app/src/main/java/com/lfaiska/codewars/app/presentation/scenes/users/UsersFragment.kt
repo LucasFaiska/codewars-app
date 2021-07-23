@@ -8,15 +8,17 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lfaiska.codewars.app.MainApplication
 import com.lfaiska.codewars.app.R
 import com.lfaiska.codewars.app.databinding.FragmentUsersBinding
+import com.lfaiska.codewars.app.presentation.scenes.users.model.UserListItem
 import javax.inject.Inject
 
-class UsersFragment : Fragment() {
+class UsersFragment : Fragment(), UserListAdapterListener {
     private lateinit var binding: FragmentUsersBinding
-    private val userListAdapter = UserListAdapter()
+    private val userListAdapter = UserListAdapter(this)
 
     @Inject
     lateinit var viewModel: UsersViewModel
@@ -77,5 +79,9 @@ class UsersFragment : Fragment() {
         viewModel.userListItemFound.observe(viewLifecycleOwner, { userListItem ->
             userListAdapter.addUser(userListItem)
         })
+    }
+
+    override fun onUserListItemTouched(userListItem: UserListItem) {
+        findNavController().navigate(UsersFragmentDirections.navigateToChallenges())
     }
 }

@@ -8,7 +8,8 @@ import com.lfaiska.codewars.app.R
 import com.lfaiska.codewars.app.databinding.ViewUserListItemBinding
 import com.lfaiska.codewars.app.presentation.scenes.users.model.UserListItem
 
-class UserListAdapter : RecyclerView.Adapter<UserListAdapter.UserListViewHolder>() {
+class UserListAdapter(private val listener: UserListAdapterListener) :
+    RecyclerView.Adapter<UserListAdapter.UserListViewHolder>() {
     private val userList = ArrayDeque<UserListItem>()
 
     fun addUser(userListItem: UserListItem) {
@@ -35,6 +36,10 @@ class UserListAdapter : RecyclerView.Adapter<UserListAdapter.UserListViewHolder>
     override fun onBindViewHolder(holder: UserListViewHolder, position: Int) {
         val userListItem = userList[position]
         holder.binding.user = userListItem
+
+        holder.binding.root.setOnClickListener {
+            listener.onUserListItemTouched(userListItem)
+        }
     }
 
     override fun getItemCount() = userList.size

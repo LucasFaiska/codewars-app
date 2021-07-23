@@ -8,6 +8,18 @@
     <fragment
         android:id="@+id/users_fragment"
         android:name="com.lfaiska.codewars.app.presentation.scenes.users.UsersFragment"
-        tools:layout="@layout/fragment_users" />
+        tools:layout="@layout/fragment_users">
+
+        <action
+            android:id="@+id/navigate_to_challenges"
+            app:destination="@id/challenges_fragment"
+            app:popUpTo="@id/challenges_fragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/challenges_fragment"
+        android:name="com.lfaiska.codewars.app.presentation.scenes.challenges.ChallengesFragment"
+        tools:layout="@layout/fragment_challenges" />
 
 </navigation>
