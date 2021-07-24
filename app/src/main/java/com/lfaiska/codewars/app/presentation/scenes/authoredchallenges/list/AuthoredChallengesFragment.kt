@@ -1,24 +1,18 @@
 package com.lfaiska.codewars.app.presentation.scenes.authoredchallenges.list
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import com.lfaiska.codewars.app.R
-import com.lfaiska.codewars.app.databinding.FragmentAuthoredChallengesBinding
+import com.lfaiska.codewars.app.MainApplication
+import com.lfaiska.codewars.app.presentation.scenes.base.challengeslist.ChallengesListFragment
+import javax.inject.Inject
 
-class AuthoredChallengesFragment : Fragment() {
-    private lateinit var binding: FragmentAuthoredChallengesBinding
+class AuthoredChallengesFragment : ChallengesListFragment() {
+    @Inject
+    lateinit var authoredChallengesViewModel: AuthoredChallengesViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        super.onCreateView(inflater, container, savedInstanceState)
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_authored_challenges, container, false)
-        return binding.root
+    override fun onCreate(savedInstanceState: Bundle?) {
+        (activity?.applicationContext as MainApplication).appComponent.inject(this)
+        super.onCreate(savedInstanceState)
     }
+
+    override fun getViewModel() = authoredChallengesViewModel
 }

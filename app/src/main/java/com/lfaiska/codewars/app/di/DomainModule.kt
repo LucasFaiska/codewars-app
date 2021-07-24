@@ -1,12 +1,10 @@
 package com.lfaiska.codewars.app.di
 
-import com.lfaiska.codewars.data.repository.RepositoryModule
+import com.lfaiska.codewars.data.repository.di.RepositoryModule
+import com.lfaiska.codewars.domain.repository.AuthoredChallengesRepository
 import com.lfaiska.codewars.domain.repository.CompletedChallengesRepository
 import com.lfaiska.codewars.domain.repository.UserRepository
-import com.lfaiska.codewars.domain.usecase.GetCompletedChallengesFromUser
-import com.lfaiska.codewars.domain.usecase.GetCompletedChallengesFromUserImpl
-import com.lfaiska.codewars.domain.usecase.GetUserByUsername
-import com.lfaiska.codewars.domain.usecase.GetUserByUsernameImpl
+import com.lfaiska.codewars.domain.usecase.*
 import dagger.Module
 import dagger.Provides
 
@@ -20,5 +18,10 @@ class DomainModule {
     @Provides
     fun provideGetCompletedChallengesFromUser(repository: CompletedChallengesRepository): GetCompletedChallengesFromUser {
         return GetCompletedChallengesFromUserImpl(repository)
+    }
+
+    @Provides
+    fun provideGetAuthoredChallengesFromUser(repository: AuthoredChallengesRepository): GetAuthoredChallengesFromUser {
+        return GetAuthoredChallengesFromUserImpl(repository)
     }
 }

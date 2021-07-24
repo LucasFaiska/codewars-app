@@ -1,6 +1,6 @@
 package com.lfaiska.codewars.domain.entity
 
-data class CompletedChallenge (
+data class Challenge (
     val id: String,
     val name: String,
 )

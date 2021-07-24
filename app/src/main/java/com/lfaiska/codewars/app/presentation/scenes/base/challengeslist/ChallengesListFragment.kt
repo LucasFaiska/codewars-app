@@ -8,10 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lfaiska.codewars.app.R
-import com.lfaiska.codewars.app.databinding.FragmentCompletedChallengesBinding
+import com.lfaiska.codewars.app.databinding.FragmentChallengesListBinding
 
 abstract class ChallengesListFragment : Fragment() {
-    private lateinit var binding: FragmentCompletedChallengesBinding
+    private lateinit var binding: FragmentChallengesListBinding
     private val completedChallengesAdapter = ChallengesListAdapter()
 
     override fun onCreateView(
@@ -20,7 +20,8 @@ abstract class ChallengesListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_completed_challenges, container, false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_challenges_list, container, false)
         setupView()
         setupObservers()
         getViewModel().setupViewModel("PG1")

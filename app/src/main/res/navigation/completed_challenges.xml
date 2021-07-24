@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/completed_challenges_fragment"
         android:name="com.lfaiska.codewars.app.presentation.scenes.completedchallenges.list.CompletedChallengesFragment"
-        tools:layout="@layout/fragment_completed_challenges" />
+        tools:layout="@layout/fragment_challenges_list" />
 
 </navigation>

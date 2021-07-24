@@ -18,8 +18,8 @@ import javax.inject.Inject
 class UserRepositoryImpl @Inject constructor(
     private val apiServices: ApiServices
 ) : UserRepository {
-    override suspend fun getUser(username: String): User {
-        return when (val response = ApiResponse.create(apiServices.getUser(username))) {
+    override suspend fun getUser(user: String): User {
+        return when (val response = ApiResponse.create(apiServices.getUser(user))) {
             is ApiSuccessResponse<UserResponse> -> response.data.toUser()
             is ApiErrorResponse -> throw handleErrorResponse(response.error)
         }
