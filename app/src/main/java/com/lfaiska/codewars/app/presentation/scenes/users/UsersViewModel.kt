@@ -28,6 +28,7 @@ class UsersViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val user = getUserByUsername.execute(userName)
+                //@TODO need to define best language
                 _userListItemFound.postValue(
                     UserListItem(
                         user.name ?: "",

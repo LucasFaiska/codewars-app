@@ -2,6 +2,7 @@ package com.lfaiska.codewars.data.repository
 
 import com.lfaiska.codewars.data.remote.ApiServices
 import com.lfaiska.codewars.data.remote.RemoteModule
+import com.lfaiska.codewars.domain.repository.CompletedChallengesRepository
 import com.lfaiska.codewars.domain.repository.UserRepository
 import dagger.Module
 import dagger.Provides
@@ -11,5 +12,10 @@ class RepositoryModule {
     @Provides
     fun provideUserRepository(apiServices: ApiServices): UserRepository {
         return UserRepositoryImpl(apiServices)
+    }
+
+    @Provides
+    fun provideCompletedChallengesRepository(apiServices: ApiServices): CompletedChallengesRepository {
+        return CompletedChallengesRepositoryImpl(apiServices)
     }
 }

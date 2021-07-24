@@ -36,8 +36,6 @@
                 android:textColor="@color/white"
                 android:text="@{@string/user_name_text(user.name)}"  />
 
-            @{@string/generic_text(profile.firstName, profile.secondName)}
-
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/rank"
                 android:layout_width="wrap_content"

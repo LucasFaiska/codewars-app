@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/completed_challenges_fragment"
-        android:name="com.lfaiska.codewars.app.presentation.scenes.challenges.completed.CompletedChallengesFragment"
+        android:name="com.lfaiska.codewars.app.presentation.scenes.completedchallenges.list.CompletedChallengesFragment"
         tools:layout="@layout/fragment_completed_challenges" />
 
 </navigation>

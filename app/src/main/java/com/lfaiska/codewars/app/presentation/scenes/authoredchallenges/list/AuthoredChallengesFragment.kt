@@ -1,4 +1,4 @@
-package com.lfaiska.codewars.app.presentation.scenes.challenges.completed
+package com.lfaiska.codewars.app.presentation.scenes.authoredchallenges.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,11 +8,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.lfaiska.codewars.app.R
 import com.lfaiska.codewars.app.databinding.FragmentAuthoredChallengesBinding
-import com.lfaiska.codewars.app.databinding.FragmentChallengesBinding
-import com.lfaiska.codewars.app.databinding.FragmentCompletedChallengesBinding
 
-class CompletedChallengesFragment : Fragment() {
-    private lateinit var binding: FragmentCompletedChallengesBinding
+class AuthoredChallengesFragment : Fragment() {
+    private lateinit var binding: FragmentAuthoredChallengesBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,7 +18,7 @@ class CompletedChallengesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_completed_challenges, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_authored_challenges, container, false)
         return binding.root
     }
 }
