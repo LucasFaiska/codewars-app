@@ -1,20 +1,20 @@
-package com.lfaiska.codewars.app.presentation.scenes.completedchallenges.list
+package com.lfaiska.codewars.app.presentation.scenes.base.challengeslist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.lfaiska.codewars.app.R
-import com.lfaiska.codewars.app.databinding.ViewCompletedChallengesListItemBinding
-import com.lfaiska.codewars.app.presentation.scenes.completedchallenges.list.model.CompletedChallengeListItem
+import com.lfaiska.codewars.app.databinding.ViewChallengesListItemBinding
+import com.lfaiska.codewars.app.presentation.scenes.base.challengeslist.model.ChallengeListItem
 
-class CompletedChallengesAdapter :
-    RecyclerView.Adapter<CompletedChallengesAdapter.CompletedChallengesListAdapterViewHolder>() {
+class ChallengesListAdapter :
+    RecyclerView.Adapter<ChallengesListAdapter.CompletedChallengesListAdapterViewHolder>() {
 
-    private val completedChallengesList = mutableListOf<CompletedChallengeListItem>()
+    private val completedChallengesList = mutableListOf<ChallengeListItem>()
 
-    fun addCompletedChallenges(completedChallengeList: List<CompletedChallengeListItem>) {
-        completedChallengesList.addAll(completedChallengeList)
+    fun addCompletedChallenges(challengeList: List<ChallengeListItem>) {
+        completedChallengesList.addAll(challengeList)
         notifyDataSetChanged()
     }
 
@@ -22,9 +22,9 @@ class CompletedChallengesAdapter :
         parent: ViewGroup,
         viewType: Int
     ): CompletedChallengesListAdapterViewHolder {
-        val binding: ViewCompletedChallengesListItemBinding = DataBindingUtil.inflate(
+        val binding: ViewChallengesListItemBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            R.layout.view_completed_challenges_list_item,
+            R.layout.view_challenges_list_item,
             parent,
             false
         )
@@ -39,6 +39,6 @@ class CompletedChallengesAdapter :
     override fun getItemCount() = completedChallengesList.size
 
     class CompletedChallengesListAdapterViewHolder(
-        val binding: ViewCompletedChallengesListItemBinding
+        val binding: ViewChallengesListItemBinding
     ) : RecyclerView.ViewHolder(binding.root)
 }
