@@ -8,4 +8,6 @@
     <string name="user_name_text">Name: %s</string>
     <string name="user_rank_text">Rank: %1$s - %2$s</string>
     <string name="user_best_language_text">Best Language: %1$s - %2$s</string>
+    <string name="menu_challenges_completed_label">Completed</string>
+    <string name="menu_challenges_authored_label">Authored</string>
 </resources>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_challenges_completed"
+        android:id="@+id/completed_challenges"
         android:checked="true"
-        android:title="Completed" />
+        android:title="@string/menu_challenges_completed_label" />
     <item
-        android:id="@+id/nav_challenges_authored"
-        android:title="Authored" />
+        android:id="@+id/authored_challenges"
+        android:title="@string/menu_challenges_authored_label" />
 </menu>

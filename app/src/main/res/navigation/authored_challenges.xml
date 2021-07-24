@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/authored_challenges"
+    app:startDestination="@id/authored_challenges_fragment">
+
+    <fragment
+        android:id="@+id/authored_challenges_fragment"
+        android:name="com.lfaiska.codewars.app.presentation.scenes.challenges.authored.AuthoredChallengesFragment"
+        tools:layout="@layout/fragment_authored_challenges" />
+
+</navigation>
